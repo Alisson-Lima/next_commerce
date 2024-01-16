@@ -1,9 +1,6 @@
 import Container from '@/components/Container'
-import React from 'react'
 
-type Props = {}
-
-export default function Cart({ }: Props) {
+export default function Cart() {
     return (
         <Container>
             <div>

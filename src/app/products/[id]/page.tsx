@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
-export default function page() {
+export default function Page() {
 
     const params = useParams()
     const [product, setProduct] = useState<ProductType | null>(null)
