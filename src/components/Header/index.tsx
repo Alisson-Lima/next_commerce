@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import Container from '../Container'
+import CartItem from './CartItem'
+import { CartContextProvider } from '@/contexts/CartContext'
 
 export default function Header() {
     return (
@@ -10,7 +12,9 @@ export default function Header() {
 
                 <ul className='flex space-x-4 p-0 text-gray-600'>
                     <li><Link href="/" className='hover:text-gray-200 transition-colors'>Home</Link></li>
-                    <li><Link href="/cart" className='hover:text-gray-200 transition-colors'>Cart</Link></li>
+                    <CartContextProvider>
+                        <CartItem />
+                    </CartContextProvider>
                 </ul>
             </Container>
         </nav>

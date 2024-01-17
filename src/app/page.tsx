@@ -23,7 +23,7 @@ export default async function Home() {
 
       <Filters className="mb-10" />
 
-      <div className="products flex flex-wrap w-full justify-center space-x-4">
+      <div className="flex flex-wrap w-full justify-center sm:space-x-4">
         {
           products?.map(item => (
             <Product key={item.id} id={item.id} image={item.image} title={item.title} description={item.description} price={item.price} rating={item.rating} />
