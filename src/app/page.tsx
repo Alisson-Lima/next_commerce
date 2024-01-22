@@ -1,8 +1,10 @@
 import Container from "@/components/Container";
 import Filters from "@/components/Filters";
 import Product from "@/components/Product";
+import ProductSkeleton from "@/components/skeletons/Product";
 import { Product as ProductType } from "@/types/general";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default async function Home() {
 
@@ -26,7 +28,9 @@ export default async function Home() {
       <div className="flex flex-wrap w-full justify-center sm:space-x-4">
         {
           products?.map(item => (
-            <Product key={item.id} id={item.id} image={item.image} title={item.title} description={item.description} price={item.price} rating={item.rating} />
+            <Suspense fallback={<ProductSkeleton />}>
+              <Product key={item.id} id={item.id} image={item.image} title={item.title} description={item.description} price={item.price} rating={item.rating} />
+            </Suspense>
           ))
         }
       </div>

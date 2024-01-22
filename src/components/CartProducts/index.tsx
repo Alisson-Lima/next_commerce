@@ -1,8 +1,9 @@
 "use client"
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useCartContext } from '@/contexts/CartContext'
 import Product from '../Product'
+import ProductSkeleton from '../skeletons/Product'
 
 export default function CartProducts() {
     const { cart } = useCartContext()
@@ -13,7 +14,9 @@ export default function CartProducts() {
                     <>
                         {
                             cart.map(p => (
-                                <Product key={p.title + p.id} id={p.id} description={p.description} image={p.image} price={p.price} rating={p.rating} title={p.title} />
+                                <Suspense fallback={<ProductSkeleton />}>
+                                    <Product key={p.title + p.id} id={p.id} description={p.description} image={p.image} price={p.price} rating={p.rating} title={p.title} />
+                                </Suspense>
                             ))
                         }
                     </>

@@ -1,4 +1,3 @@
-// 'use client'
 import React from 'react'
 import { Product as ProductProps } from '@/types/general'
 import Image from 'next/image'
@@ -6,7 +5,6 @@ import Link from 'next/link'
 
 
 export default function Product(data: ProductProps) {
-    console.log(data.image)
     return (
         <Link href={`/products/${data.id}`} className='max-w-[296px] mb-10 text-gray-400'>
             <div className='rounded-md h-[296px] mb-4 relative bg-white overflow-hidden w-[296px] flex justify-center items-center'>
